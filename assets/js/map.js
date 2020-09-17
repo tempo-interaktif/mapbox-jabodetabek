@@ -122,7 +122,7 @@
             .append("path")
             .attr("stroke", "gray")
             .attr("fill", "#949494")
-            .attr("fill-opacity", 0.6)
+            .attr("fill-opacity", 0.8)
             .attr("class",function(d) {return 'kab-'+d.properties.ID_1})
             .attr("data-kab",function(d) {return d.properties.ID_1})
     
