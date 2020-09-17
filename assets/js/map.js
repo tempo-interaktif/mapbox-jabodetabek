@@ -180,3 +180,9 @@
         }
     })
 }());
+$(document).on('mouseenter','.kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks', function(e) {
+    $('.'+$(this).attr('class')).css('stroke','red').css('stroke-width','5px')
+})
+$(document).on('mouseout','.kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks', function(e) {
+    $('.kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks').css('stroke','red').css('stroke-width','1px')
+})

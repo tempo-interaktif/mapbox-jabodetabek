@@ -3,6 +3,7 @@
 }
 .kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks{
     stroke: red;
+    stroke-width: 1px;
     cursor: pointer;
     fill: transparent;
 }
