@@ -1,5 +1,7 @@
+.keterangan-container{
+    display: none;
+}
 .kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks{
-    fill:red;
     cursor: pointer;
 }
 .map-container{

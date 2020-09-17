@@ -81,7 +81,7 @@
     
     var map //leaflet obj
     
-    d3.json("ina.json",main)
+    d3.json("jabodetabek.json",main)
     
     
     function main(json) {
@@ -121,7 +121,7 @@
             .enter()
             .append("path")
             .attr("stroke", "gray")
-            .attr("fill", "rgb(196, 196, 196)")
+            .attr("fill", "red")
             .attr("fill-opacity", 0.6)
             .attr("class",function(d) {return 'kab-'+d.properties.ID_1})
             .attr("data-kab",function(d) {return d.properties.ID_1})
@@ -141,6 +141,7 @@
         $('.kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks').css('fill','red')
         $('.kab-'+kab).css('fill','yellow')
         $('.box').attr('class','box show')
+        $('#keterangan').html($('#ket-'+kab).html())
         switch (kab) {
             case 'jkt':
                 map.setView([-6.23016, 106.84929], 11);
