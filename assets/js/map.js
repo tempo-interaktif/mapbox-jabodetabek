@@ -136,20 +136,20 @@
         } 
     }
     
-    $(document).on('click','.kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks, .btn-change', function(e) {
+    $(document).on('click','.kab-perbatasan-kab-jkt, .kab-perbatasan-kab-tgr, .kab-perbatasan-kab-bgr, .kab-dpk, .kab-perbatasan-kab-bks, .btn-change', function(e) {
         var kab = $(this).data('kab')
-        $('.kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks').css('stroke','red').css('stroke-width','1px')
-        $('.kab-'+kab).css('stroke','red').css('stroke-width','5px')
+        $('.kab-perbatasan-kab-jkt, .kab-perbatasan-kab-tgr, .kab-perbatasan-kab-bgr, .kab-dpk, .kab-perbatasan-kab-bks').css('stroke','red').css('stroke-width','1px').removeClass('active')
+        $('.kab-'+kab).addClass('active')
         $('.box').attr('class','box show')
         $('#keterangan').html($('#ket-'+kab).html())
         switch (kab) {
-            case 'jkt':
+            case 'perbatasan-kab-jkt':
                 map.setView([-6.23016, 106.84929], 11);
                 $("#ina-map").data("status","change")
                 $('#nama-daerah').html('Jakarta')
-                $('#daerah-selanjutnya').data('kab','bgr')
+                $('#daerah-selanjutnya').data('kab','perbatasan-kab-bgr')
                 break;
-            case 'bgr':
+            case 'perbatasan-kab-bgr':
                 map.setView([-6.54678, 106.80019], 11);
                 $("#ina-map").data("status","change")
                 $('#nama-daerah').html('Bogor')
@@ -159,19 +159,19 @@
                 map.setView([-6.38684, 106.80538], 12);
                 $("#ina-map").data("status","change")
                 $('#nama-daerah').html('Depok')
-                $('#daerah-selanjutnya').data('kab','tgr')
+                $('#daerah-selanjutnya').data('kab','perbatasan-kab-tgr')
                 break;
-            case 'tgr':
+            case 'perbatasan-kab-tgr':
                 map.setView([-6.18915, 106.58367], 11);
                 $("#ina-map").data("status","change")
                 $('#nama-daerah').html('Tangerang')
-                $('#daerah-selanjutnya').data('kab','bks')
+                $('#daerah-selanjutnya').data('kab','perbatasan-kab-bks')
                 break;
-            case 'bks':
+            case 'perbatasan-kab-bks':
                 map.setView([-6.24844, 107.04090], 11);
                 $("#ina-map").data("status","change")
                 $('#nama-daerah').html('Bekasi')
-                $('#daerah-selanjutnya').data('kab','jkt')
+                $('#daerah-selanjutnya').data('kab','perbatasan-kab-jkt')
                 break;
             default:
                 map.setView([-6.4, 106.8], 10);
@@ -180,9 +180,9 @@
         }
     })
 }());
-$(document).on('mouseenter','.kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks', function(e) {
+$(document).on('mouseenter','.kab-perbatasan-kab-jkt, .kab-perbatasan-kab-tgr, .kab-perbatasan-kab-bgr, .kab-dpk, .kab-perbatasan-kab-bks', function(e) {
     $('.'+$(this).attr('class')).css('stroke','red').css('stroke-width','5px')
 })
-$(document).on('mouseout','.kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks', function(e) {
-    $('.kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks').css('stroke','red').css('stroke-width','1px')
+$(document).on('mouseout','.kab-perbatasan-kab-jkt, .kab-perbatasan-kab-tgr, .kab-perbatasan-kab-bgr, .kab-dpk, .kab-perbatasan-kab-bks', function(e) {
+    $('.kab-perbatasan-kab-jkt, .kab-perbatasan-kab-tgr, .kab-perbatasan-kab-bgr, .kab-dpk, .kab-perbatasan-kab-bks').css('stroke','red').css('stroke-width','1px')
 })
