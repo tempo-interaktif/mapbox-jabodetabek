@@ -2,7 +2,13 @@
     display: none;
 }
 .kab-jkt, .kab-tgr, .kab-bgr, .kab-dpk, .kab-bks{
+    stroke: red;
     cursor: pointer;
+    fill: transparent;
+}
+.kab-jkt:hover, .kab-tgr:hover, .kab-bgr:hover, .kab-dpk:hover, .kab-bks:hover{
+    stroke: red;
+    stroke-width: 5px;
 }
 .map-container{
     position: relative;
