@@ -80,9 +80,24 @@
     "use strict"
     
     var map //leaflet obj
+    var width = document.body.getBoundingClientRect().width
+    if (width > 500) {
+        var zoomAwal = 10
+        var zoomJkt = 11
+        var zoomBgr = 11
+        var zoomDpk = 12
+        var zoomTgr = 11
+        var zoomBks = 11
+    } else {
+        var zoomAwal = 9
+        var zoomJkt = 10
+        var zoomBgr = 10
+        var zoomDpk = 11
+        var zoomTgr = 10
+        var zoomBks = 10
+    }
     
     d3.json("ina.json",main)
-    
     
     function main(json) {
         addLmaps()
@@ -91,11 +106,9 @@
     
     function addLmaps(lat,long) {
         //Leaflet初期設定
-        map = L.map('map', { zoomControl: false }).setView([-6.4, 106.8], 10);
+        map = L.map('map', { zoomControl: false }).setView([-6.4, 106.8], zoomAwal);
         
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
 
         //Leafletに用意されたsvgを使う 
         map._initPathRoot();	
@@ -144,42 +157,43 @@
         $('#keterangan').html($('#ket-'+kab).html())
         switch (kab) {
             case 'perbatasan-kab-jkt':
-                map.setView([-6.23016, 106.84929], 11);
+                map.setView([-6.23016, 106.84929], zoomJkt);
                 $("#ina-map").data("status","change")
                 $('#nama-daerah').html('Jakarta')
                 $('#daerah-selanjutnya').data('kab','perbatasan-kab-bgr')
                 break;
             case 'perbatasan-kab-bgr':
-                map.setView([-6.54678, 106.80019], 11);
+                map.setView([-6.54678, 106.80019], zoomBgr);
                 $("#ina-map").data("status","change")
                 $('#nama-daerah').html('Bogor')
                 $('#daerah-selanjutnya').data('kab','dpk')
                 break;
             case 'dpk':
-                map.setView([-6.38684, 106.80538], 12);
+                map.setView([-6.38684, 106.80538], zoomDpk);
                 $("#ina-map").data("status","change")
                 $('#nama-daerah').html('Depok')
                 $('#daerah-selanjutnya').data('kab','perbatasan-kab-tgr')
                 break;
             case 'perbatasan-kab-tgr':
-                map.setView([-6.18915, 106.58367], 11);
+                map.setView([-6.18915, 106.58367], zoomTgr);
                 $("#ina-map").data("status","change")
                 $('#nama-daerah').html('Tangerang')
                 $('#daerah-selanjutnya').data('kab','perbatasan-kab-bks')
                 break;
             case 'perbatasan-kab-bks':
-                map.setView([-6.24844, 107.04090], 11);
+                map.setView([-6.24844, 107.04090], zoomBks);
                 $("#ina-map").data("status","change")
                 $('#nama-daerah').html('Bekasi')
                 $('#daerah-selanjutnya').data('kab','perbatasan-kab-jkt')
                 break;
             default:
-                map.setView([-6.4, 106.8], 10);
+                map.setView([-6.4, 106.8], zoomAwal);
                 $('.box').attr('class','box hide')
                 break;
         }
     })
 }());
+
 $(document).on('mouseenter','.kab-perbatasan-kab-jkt, .kab-perbatasan-kab-tgr, .kab-perbatasan-kab-bgr, .kab-dpk, .kab-perbatasan-kab-bks', function(e) {
     $('.'+$(this).attr('class')).css('stroke','red').css('stroke-width','5px')
 })
