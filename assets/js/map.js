@@ -191,6 +191,9 @@
                 $('.box').attr('class','box hide')
                 break;
         }
+        var boxHeight = $('.box').height()
+        console.log(boxHeight)
+        $('.box').css('margin-top','-'+boxHeight/2+'px')
     })
 }());
 
