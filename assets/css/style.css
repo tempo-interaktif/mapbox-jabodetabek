@@ -89,3 +89,11 @@
         bottom: 5px;
     }
 }
+@media screen and (max-width:350px){
+    .button-leave{
+        margin-top: 2px;
+    }
+    .button-leave li {
+        padding: 0 !important;
+    }
+}
