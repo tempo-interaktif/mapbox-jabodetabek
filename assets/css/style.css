@@ -51,7 +51,8 @@
     padding: 0;
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
 }
 .button-leave li{
     display: block;

@@ -192,7 +192,6 @@
                 break;
         }
         var boxHeight = $('.box').height()
-        console.log(boxHeight)
         $('.box').css('margin-top','-'+boxHeight/2+'px')
     })
 }());
@@ -202,4 +201,7 @@ $(document).on('mouseenter','.kab-perbatasan-kab-jkt, .kab-perbatasan-kab-tgr, .
 })
 $(document).on('mouseout','.kab-perbatasan-kab-jkt, .kab-perbatasan-kab-tgr, .kab-perbatasan-kab-bgr, .kab-dpk, .kab-perbatasan-kab-bks', function(e) {
     $('.kab-perbatasan-kab-jkt, .kab-perbatasan-kab-tgr, .kab-perbatasan-kab-bgr, .kab-dpk, .kab-perbatasan-kab-bks').css('stroke','red').css('stroke-width','1px')
+})
+$(document).on('click','.btn-share',function(e) {
+    $('.section-link').addClass('open').removeClass('close')
 })
